@@ -1,7 +1,7 @@
 void drawTileset14(tileset,tileType)
 {
-	for (var i = 0; i < array_length(tileset); ++i) {
-		for (var n = 0; n < array_length(tileset[i]); ++n) {
+	for (var i = 0; i < array_length(tileset); i++) {
+		for (var n = 0; n < array_length(tileset[i]); n++) {
 			if (tileset[i][n].tile == tileType) {
 				var sprData = checkSurroundingsTile14(checkSurroundings(i,n,tileset,tileset[i][n].tile));
 				draw_sprite_ext(tileset[i][n].tile,sprData[0],coorToTile(n),coorToTile(i),(sprData[2]*-2)+1,1,sprData[1]*90,c_white,1);
@@ -12,8 +12,8 @@ void drawTileset14(tileset,tileType)
 
 void drawTileset16(tileset,tileType)
 {
-	for (var i = 0; i < array_length(tileset); ++i) {
-		for (var n = 0; n < array_length(tileset[i]); ++n) {
+	for (var i = 0; i < array_length(tileset); i++) {
+		for (var n = 0; n < array_length(tileset[i]); n++) {
 			if (tileset[i][n].tile == tileType) {
 				var sprData = checkSurroundingsTile16(checkSurroundings(i,n,tileset,tileset[i][n].tile));
 				draw_sprite_ext(tileset[i][n].tile,sprData,coorToTile(n),coorToTile(i),1,1,0,c_white,1);
@@ -23,8 +23,8 @@ void drawTileset16(tileset,tileType)
 }
 void drawTileset22(tileset,tileType,spr = noone)
 {
-	for (var i = 0; i < array_length(tileset); ++i) {
-		for (var n = 0; n < array_length(tileset[i]); ++n) {
+	for (var i = 0; i < array_length(tileset); i++) {
+		for (var n = 0; n < array_length(tileset[i]); n++) {
 			if (tileset[i][n].tile == tileType) {
 				var sprData = checkSurroundingsTile22(checkSurroundings(i,n,tileset,tileset[i][n].tile));
 				draw_sprite_ext(spr == noone ? tileType : spr,sprData,coorToTile(n),coorToTile(i),1,1,0,c_white,1);
@@ -36,8 +36,8 @@ void drawTileset22(tileset,tileType,spr = noone)
 
 void drawTilesetBound(tileset,tileType)
 {
-	for (var i = 0; i < array_length(tileset); ++i) {
-		for (var n = 0; n < array_length(tileset[i]); ++n) {
+	for (var i = 0; i < array_length(tileset); i++) {
+		for (var n = 0; n < array_length(tileset[i]); n++) {
 			if (tileset[i][n].tile == tileType) {
 				var sprData = checkSurroundingsTile22(checkSurroundingsBound(i,n,tileset,tileset[i][n].tile));
 				draw_sprite_ext(tileset[i][n].tile,sprData,coorToTile(n)-TILE_START,coorToTile(i)-TILE_START,1,1,0,c_white,1);
@@ -48,8 +48,8 @@ void drawTilesetBound(tileset,tileType)
 
 void drawObjects(tileset,tileType,ind = 0)
 {
-	for (var i = 0; i < array_length(tileset); ++i) {
-		for (var n = 0; n < array_length(tileset[i]); ++n) {
+	for (var i = 0; i < array_length(tileset); i++) {
+		for (var n = 0; n < array_length(tileset[i]); n++) {
 			if (tileset[i][n].tile == tileType) {
 				draw_sprite_ext(tileType,ind,coorToTile(n),coorToTile(i),1,1,0,c_white,1);
 			}
@@ -62,7 +62,7 @@ void drawObjectList()
 	//Sort object data by location into array
 	var tileset = oData.objectData;
 	if (ds_list_size(tileset) > 0) {
-		for (var i = 0; i < ds_list_size(tileset); ++i)
+		for (var i = 0; i < ds_list_size(tileset); i++)
 		tileArray[i] = ds_list_find_value(tileset,i);
 		array_sort(tileArray,function(elm1, elm2)
 		{
@@ -70,7 +70,7 @@ void drawObjectList()
 		});
 	
 		//Draw objects
-		for (var i = 0; i < array_length(tileArray); ++i) {
+		for (var i = 0; i < array_length(tileArray); i++) {
 			var data = tileArray[i];
 			draw_sprite_ext(data.spr,data.index,coorToTile(data.location[0]),coorToTile(data.location[1]),1,1,0,c_white,1);
 		}

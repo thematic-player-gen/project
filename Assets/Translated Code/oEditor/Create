@@ -32,7 +32,7 @@ void Start()
 {
 //Assets
 assetLevelEditorTopBar = assetCreateSprite(sLevelEditorTopBar,topBarX,topBarY,gui2Layer,0,0.8,c_white,true);
-for (var i = 0; i < 12; ++i) {
+for (var i = 0; i < 12; i++) {
 	var xTra = 0;
 	var ind = 1;
 	var spr = sLevelEditorIcon;
@@ -46,7 +46,7 @@ for (var i = 0; i < 12; ++i) {
 assetLevelEditorSelectCorners = assetCreateSprite(sLevelEditorSelect,topBarX,topBarY,gui2Layer,0,0,c_white,true);
 assetLevelEditorBarSwitcher = assetCreateSprite(sLevelEditorIcon,topBarX+topBarWidthH+96,topBarY,gui2Layer,1,0.9,c_white,true);
 assetSize(assetLevelEditorBarSwitcher,0.8,1);
-for (var i = 0; i < 4; ++i) {
+for (var i = 0; i < 4; i++) {
 	if (i != 3) {
 		assetLevelEditorSide[i] = assetCreateSprite(sLevelEditorIcon,sideBarX,sideBarY+(i*128),gui2Layer,0,0.9,c_white,true);
 		assetSize(assetLevelEditorSide[i],0.75,1);
@@ -59,7 +59,7 @@ assetLevelEditorHiddenIcon = assetCreateSprite(sLevelEditorHiddenIcon,hiddenIcon
 }
 
 //Collision
-for (var i = 0; i < 48; ++i) {
+for (var i = 0; i < 48; i++) {
 	var xTra = 0;
 	if (i < 8) xTra = 16;
 	var n = (i / 4);
@@ -74,7 +74,7 @@ guiCol[48] = topBarX+topBarWidthH+32;
 guiCol[49] = topBarY-topBarHeightH;
 guiCol[50] = topBarX+topBarWidthH+160;
 guiCol[51] = topBarY+topBarHeightH;
-for (var i = 0; i < 12; ++i) {
+for (var i = 0; i < 12; i++) {
 	var n = (i / 4);
 	switch (i % 4) {
 		case 0: guiCol[i+52] = sideBarX-48; break;
@@ -87,7 +87,7 @@ guiCol[64] = settingsX-64;
 guiCol[65] = settingsY-64;
 guiCol[66] = settingsX+64;
 guiCol[67] = settingsY+64;
-for (var i = 0; i < 16; ++i) {
+for (var i = 0; i < 16; i++) {
 	var n = (i / 4);
 	switch (i % 4) 
 	{

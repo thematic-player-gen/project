@@ -8,9 +8,9 @@ if ((checkMouseCol(roomCollision) != -1) && (!toolDoingStuff)) {
 	if (roomCollision.hide) {
 		if (assetLevelEditorHiddenIcon.targetFade == 0) assetFade(assetLevelEditorHiddenIcon,0.9,5);
 		if (assetLevelEditorTopBar.currentFade == 0.8) {
-			for (var i = 0; i < 12; ++i) assetFade(assetLevelEditorIcons[i],0,60);
-			for (var i = 0; i < 3; ++i) assetFade(assetLevelEditorSide[i],0,60);
-			for (var i = 0; i < 4; ++i) assetFade(assetLevelEditorBottom[i],0,60);
+			for (var i = 0; i < 12; i++) assetFade(assetLevelEditorIcons[i],0,60);
+			for (var i = 0; i < 3; i++) assetFade(assetLevelEditorSide[i],0,60);
+			for (var i = 0; i < 4; i++) assetFade(assetLevelEditorBottom[i],0,60);
 			assetFade(assetLevelEditorTopBar,0,60);
 			assetFade(assetLevelEditorBarSwitcher,0,60);
 			assetFade(assetLevelEditorSettings,0,60);
@@ -20,9 +20,9 @@ if ((checkMouseCol(roomCollision) != -1) && (!toolDoingStuff)) {
 	else {
 		//Fade in gui
 		if (assetLevelEditorTopBar.targetFade == 0) {
-			for (var i = 0; i < 12; ++i) assetFade(assetLevelEditorIcons[i],0.9,5);
-			for (var i = 0; i < 3; ++i) assetFade(assetLevelEditorSide[i],0.9,5);
-			for (var i = 0; i < 4; ++i) assetFade(assetLevelEditorBottom[i],0.9,5);
+			for (var i = 0; i < 12; i++) assetFade(assetLevelEditorIcons[i],0.9,5);
+			for (var i = 0; i < 3; i++) assetFade(assetLevelEditorSide[i],0.9,5);
+			for (var i = 0; i < 4; i++) assetFade(assetLevelEditorBottom[i],0.9,5);
 			assetFade(assetLevelEditorTopBar,0.8,5);
 			assetFade(assetLevelEditorBarSwitcher,0.9,5);
 			assetFade(assetLevelEditorSettings,0.9,5);
@@ -33,9 +33,9 @@ if ((checkMouseCol(roomCollision) != -1) && (!toolDoingStuff)) {
 		//Phase Switch
 		if (phaseCool > 0) phaseCool--; else {
 			//Reset Animations
-			for (var i = 0; i < 12; ++i) assetSize(assetLevelEditorIcons[i],0.8,1);
-			for (var i = 0; i < 3; ++i) assetSize(assetLevelEditorSide[i],0.75,1);
-			for (var i = 0; i < 4; ++i) assetSize(assetLevelEditorBottom[i],0.5,1);
+			for (var i = 0; i < 12; i++) assetSize(assetLevelEditorIcons[i],0.8,1);
+			for (var i = 0; i < 3; i++) assetSize(assetLevelEditorSide[i],0.75,1);
+			for (var i = 0; i < 4; i++) assetSize(assetLevelEditorBottom[i],0.5,1);
 			assetSize(assetLevelEditorBarSwitcher,0.8,1);
 			assetSize(assetLevelEditorSettings,1,1);
 			if (!valueBetween(toolSelected,0,41,true)) assetFade(assetLevelEditorSelectCorners,0,1);
@@ -271,9 +271,9 @@ else {
 	//Fade Gui if doing stuff
 	if (assetLevelEditorHiddenIcon.targetFade == 0.9) assetFade(assetLevelEditorHiddenIcon,0,20);
 	if (assetLevelEditorTopBar.currentFade == 0.8) {
-		for (var i = 0; i < 12; ++i) assetFade(assetLevelEditorIcons[i],0,60);
-		for (var i = 0; i < 3; ++i) assetFade(assetLevelEditorSide[i],0,60);
-		for (var i = 0; i < 4; ++i) assetFade(assetLevelEditorBottom[i],0,60);
+		for (var i = 0; i < 12; i++) assetFade(assetLevelEditorIcons[i],0,60);
+		for (var i = 0; i < 3; i++) assetFade(assetLevelEditorSide[i],0,60);
+		for (var i = 0; i < 4; i++) assetFade(assetLevelEditorBottom[i],0,60);
 		assetFade(assetLevelEditorTopBar,0,60);
 		assetFade(assetLevelEditorBarSwitcher,0,60);
 		assetFade(assetLevelEditorSettings,0,60);

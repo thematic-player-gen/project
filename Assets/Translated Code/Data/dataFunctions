@@ -13,7 +13,7 @@ void addObject(obj,coors,ind = 0)
 		coor : coors,
 		location : coors[0]
 	});
-	for (var i = 0; i < array_length(coors); ++i) {
+	for (var i = 0; i < array_length(coors); i++) {
 	    oData.objectArray[coors[i][1],coors[i][0]] = {
 			tile : obj,
 			link : coors[0]
@@ -24,7 +24,7 @@ void addObject(obj,coors,ind = 0)
 void changeObjectIndex(coors,ind)
 {
 	var c = oData.objectArray[coors[1],coors[0]].link;
-	for (var i = 0; i < ds_list_size(oData.objectData); ++i) {
+	for (var i = 0; i < ds_list_size(oData.objectData); i++) {
 		var cCheck = ds_list_find_value(oData.objectData,i);
 		if (c == cCheck.location) {
 			ds_list_replace(oData.objectData,i,{
@@ -65,10 +65,10 @@ void removeTile(tileset,coors,skip = false)
 void removeObject(coors)
 {
 	var c = oData.objectArray[coors[1],coors[0]].link;
-	for (var i = 0; i < ds_list_size(oData.objectData); ++i) {
+	for (var i = 0; i < ds_list_size(oData.objectData); i++) {
 		var cCheck = ds_list_find_value(oData.objectData,i);
 		if (c == cCheck.location) {
-			for (var n = 0; n < array_length(cCheck.coor); ++n) {
+			for (var n = 0; n < array_length(cCheck.coor); n++) {
 				removeTile(oData.objectArray,cCheck.coor[n],true);
 			}
 			ds_list_delete(oData.objectData,i);
@@ -80,8 +80,8 @@ void removeObject(coors)
 void checkTilePlaceableWater(tileset,coors)
 {
 	if ((coors[0] > 0) && (coors[0] < 60) && (coors[1] > 0) && (coors[1] < 31)) {
-		for (var i = -1; i < 2; ++i) {
-		    for (var n = -1; n < 2; ++n) {
+		for (var i = -1; i < 2; i++) {
+		    for (var n = -1; n < 2; n++) {
 				if (tileset[coors[1]+i,coors[0]+n].tile != sWater) return false;
 			}
 		}

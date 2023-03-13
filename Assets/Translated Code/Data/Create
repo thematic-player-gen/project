@@ -1,8 +1,8 @@
 //Map Data
 void Start()
 {
-for (var i = 0; i < 32; ++i) {
-    for (var n = 0; n < 61; ++n) {
+for (int i = 0; i < 32; i++) {
+    for (int n = 0; n < 61; n++) {
 	    objectArray[i,n] = {
 			tile : noone
 		}
