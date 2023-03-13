@@ -1,0 +1,65 @@
+void Update()
+{
+//Set facing
+if (Input.GetKey("right")) facing = 0;
+else if (Input.GetKey("left")) facing = 2;
+else if (Input.GetKey("down")) facing = 3;
+else if (Input.GetKey("up")) facing = 1;
+
+var moving = false;
+if ((Input.GetKey("right")) || (Input.GetKey("left")) || (Input.GetKey("down")) || (Input.GetKey("up"))) moving = true;
+
+image_xscale = 1;
+
+UpdateAnimation();
+//Set animation
+}
+void UpdateAnimation()
+{
+	if (moving) {
+		if (particleCool > 0)
+		particleCool--;
+		else
+		{
+			instance_create_layer(x+irandom_range(-2,2),y+irandom_range(-2,2),oInitialise.gameplayLayer,oParticle);
+			particleCool = particleCoolMax;
+		}
+		switch (facing) {
+			case 0:
+			case 2:
+				{
+				sprite_index = sPlayerMoveS;
+				image_xscale = (facing*-1)+1;
+				break;
+			}
+			case 1:
+				{
+				sprite_index = sPlayerMoveB;
+				break;
+			}
+			case 3:
+				{
+				sprite_index = sPlayerMoveF;
+				break;
+			}
+		}
+	}
+	else
+	{
+		switch (facing) {
+			case 0: case 2: {
+				sprite_index = sPlayerIdleS;
+				image_xscale = (facing*-1)+1;
+				break;
+			}
+			case 1: {
+				sprite_index = sPlayerIdleB;
+				break;
+			}
+			case 3: {
+				sprite_index = sPlayerIdleF;
+				break;
+			}
+		}
+	}
+}

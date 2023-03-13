@@ -1,0 +1,24 @@
+//Player State
+switch (playerState) {
+	case playerStates.MOVE:
+		{
+		hsp = (oController.keyRight-oController.keyLeft)*spd;
+		vsp = (oController.keyDown-oController.keyUp)*spd;
+		//Keep diagonal hypotenuse
+		if ((hsp != 0) && (vsp != 0)) {
+			hsp /= sqrt(2);
+			vsp /= sqrt(2);
+		}
+		if (jumpCoolCurrent > 0) jumpCoolCurrent--;
+		else
+		{
+			if (Input.GetButtonDown("Jump")) 
+			{
+				jumpCoolCurrent = jumpCool;
+				currentHeight++;
+			}
+		}
+		playerCollision();
+		break;
+	}
+}

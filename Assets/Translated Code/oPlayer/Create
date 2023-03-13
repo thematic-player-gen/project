@@ -1,0 +1,66 @@
+public class Create : MonoBehaviour
+{
+//Variables
+spd = 6;
+jumpCool = 15;
+particleCoolMax = 6;
+
+//Initialise
+void Start()
+{
+hsp = 0;
+vsp = 0;
+currentHeight = 1;
+jumpCoolCurrent = 0;
+facing = 0;
+particleCool = 0;
+}
+
+//State Machine
+private enum playerStates 
+{
+	MOVE,
+	ATTACK,
+	FAINT
+}
+playerState = playerStates.MOVE;
+
+
+void playerCollision()
+{
+	//Horizontal
+	var cols = ds_list_create();
+	var collide = false;
+	instance_place_list(x+hsp,y,oCollision,cols,false);
+	if (ds_list_size(cols) > 0) {
+		while (!collide) {
+			for (var i = 0; i < ds_list_size(cols); i++)
+			{
+				if (place_meeting(x+sign(hsp),y,ds_list_find_value(cols,i))) {
+					collide = true;
+					break;
+				}
+			}
+			if (!collide) x += sign(hsp);
+		}
+		hsp = 0;
+	} else x += hsp;
+	
+	//Vertical
+	var cols = ds_list_create();
+	var collide = true;
+	instance_place_list(x,y+vsp,oCollision,cols,false);
+	if (ds_list_size(cols) > 0) {
+		while (!collide) {
+			for (var i = 0; i < ds_list_size(cols); i++) {
+				if (place_meeting(x,y+sign(vsp),ds_list_find_value(cols,i))) {
+					collide = true;
+					break;
+				}
+			}
+			if (!collide) y += sign(vsp);
+		}
+		vsp = 0;
+	} else y += vsp;
+}
+}
