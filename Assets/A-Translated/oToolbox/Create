@@ -1,0 +1,14 @@
+
+void Start()
+{
+GameObject[] toolbox = new GameObject[8];
+//Toolbox
+toolbox[0] = sDirt;
+toolbox[1] = sCliff;
+toolbox[2] = sPavement;
+toolbox[3] = sFencing;
+toolbox[4] = sWater;
+toolbox[5] = sWaterRock;
+toolbox[6] = sTree1;
+toolbox[7] = sTree2;
+}

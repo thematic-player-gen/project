@@ -1,0 +1,51 @@
+//Draw outside
+drawTilesetBound(oData.boundaryArray,sGrass);
+drawTilesetBound(oData.boundaryArray2,sCliff);
+
+
+//Test draw map
+void Update()
+{
+var arr = oData.groundArray;
+for (var i = 0; i < array_length(arr); i++) {
+	for (var n = 0; n < array_length(arr[i]); ++n) {
+		draw_sprite_ext(sGrass,i*n,coorToTile(n),
+		coorToTile(i),1,1,0,c_white,1);
+	}
+}
+drawTileset14(oData.groundArray,sDirt);
+drawTileset22(oData.groundArray,sCliff);
+drawTileset22(oData.groundArray,sPavement);
+}
+//Water animation
+if (waterCool > 0) waterCool--; else waterCool = 179;
+var spr = sWater;
+switch (waterCool / 30) {
+	case 0: spr = sWater1; break;
+	case 1: spr = sWater2; break;
+	case 2: spr = sWater3; break;
+	case 3: spr = sWater4; break;
+	case 4: spr = sWater5; break;
+	case 5: spr = sWater6; break;
+
+drawTileset22(oData.groundArray,sWater,spr);
+drawObjects(oData.objectArray,sWaterRock,waterCool / 30);
+//Check water objects
+var arr = oData.objectArray;
+for (var i = 0; i < array_length(arr); i++) {
+	for (var n = 0; n < array_length(arr[i]); ++n) {
+		if ((arr[i][n].tile == sWaterRock) && (!checkTilePlaceableWater(oData.groundArray,[n,i]))) arr[i][n].tile = noone;
+	}
+}
+
+//Check cliff objects
+var arr = oData.objectArray;
+for (var i = 0; i < array_length(arr); i++) {
+	for (var n = 0; n < array_length(arr[i]); ++n) {
+		if ((arr[i][n].tile == sFencing) && (!checkTilePlaceableGround(oData.groundArray,[n,i]))) arr[i][n].tile = noone;
+	}
+}
+drawTileset16(oData.objectArray,sFencing);
+
+drawObjectList();
+}

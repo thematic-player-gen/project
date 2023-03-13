@@ -1,0 +1,5 @@
+//Water cooldown
+void Start()
+{
+waterCool = 179;
+}
