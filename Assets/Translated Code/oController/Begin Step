@@ -1,0 +1,17 @@
+//Get mouse coordinates
+mouseCoors = [clamp(mouse_x,TILE_START,3904+TILE_START-1),clamp(mouse_y,TILE_START,2048+TILE_START-1)];
+guiMouseCoors = mapToGui([mouse_x,mouse_y]);
+
+
+//Mouse input
+mouseButton = mouse_check_button(mb_left);
+mouseButtonPressed = mouse_check_button_pressed(mb_left);
+mouseButtonReleased = mouse_check_button_released(mb_left);
+
+//Key input
+keyRight = keyboard_check(ord("D"));
+keyLeft = keyboard_check(ord("A"));
+keyUp = keyboard_check(ord("W"));
+keyDown = keyboard_check(ord("S"));
+
+spacebarPressed = keyboard_check_pressed(vk_space);

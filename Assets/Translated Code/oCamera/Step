@@ -1,0 +1,28 @@
+//Destination
+if (instance_exists(follow)) {
+	if (abs(xTowards-follow.x) > centreLeewayX) xTowards = follow.x-((sign(follow.x-xTowards)*centreLeewayX));
+	if (abs(yTowards-follow.y) > centreLeewayY) yTowards = follow.y-((sign(follow.y-yTowards)*centreLeewayY));
+}
+
+//Fixed Position
+if (fixedX != 0) xTowards = fixedX;
+if (fixedY != 0) yTowards = fixedY;
+
+//Zoom
+if (abs(zoom-currentZoom) < cameraZoomLeeway) currentZoom = zoom;
+else currentZoom += (zoom-currentZoom)/zoomSpd;
+camera_set_view_size(cam,defaultWidth*currentZoom,defaultHeight*currentZoom);
+
+//Reset Size
+halfWidth = camera_get_view_width(cam) * 0.5;
+halfHeight = camera_get_view_height(cam) * 0.5;
+
+//Move Object
+x += (xTowards-x)/camSpd;
+y += (yTowards-y)/camSpd;
+
+x = clamp(x,halfWidth,oInitialise.roomWidth-halfWidth);
+y = clamp(y,halfHeight,oInitialise.roomHeight-halfHeight);
+
+//Update Camera
+camera_set_view_pos(cam,x-halfWidth,y-halfHeight);

@@ -1,0 +1,47 @@
+function getCameraSize() {
+	with (oCamera) {
+		var w = camera_get_view_width(cam);
+		var h = camera_get_view_height(cam);
+	}
+	return [w,h];
+}
+
+function getCameraZoom() {
+	return oCamera.currentZoom;
+}
+
+function cameraFix(xCoor,yCoor) {
+	with (oCamera) {
+		if (xCoor != -1000) fixedX = xCoor;
+		if (yCoor != -1000) fixedY = yCoor;
+	}
+}
+
+function cameraZoom(zoomS,zoomSp = 0) {
+	with (oCamera) {
+		zoom = zoomS;
+		if (zoomSp > 0) zoomSpd = zoomSp;
+	}
+}
+
+function cameraMoveSpd(xSpd,ySpd) {
+	with (oCamera) {
+		xTowards += xSpd;
+		if (xTowards < halfWidth) xTowards = halfWidth;
+		else if (xTowards > oInitialise.roomWidth-halfWidth) xTowards = oInitialise.roomWidth-halfWidth;
+		yTowards += ySpd;
+		if (yTowards < halfHeight) yTowards = halfHeight;
+		else if (yTowards > oInitialise.roomHeight-halfHeight) yTowards = oInitialise.roomHeight-halfHeight;
+	}
+}
+
+function cameraMoveSet(xSet,ySet) {
+	with (oCamera) {
+		xTowards = xSet;
+		if (xTowards < halfWidth) xTowards = halfWidth;
+		else if (xTowards > oInitialise.roomWidth-halfWidth) xTowards = oInitialise.roomWidth-halfWidth;
+		yTowards = ySet;
+		if (yTowards < halfHeight) yTowards = halfHeight;
+		else if (yTowards > oInitialise.roomHeight-halfHeight) yTowards = oInitialise.roomHeight-halfHeight;
+	}
+}

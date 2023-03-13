@@ -1,0 +1,25 @@
+//Tool Display
+var guiCoors = [coorToTile(mapToArray(oController.mouseCoors)[0]),coorToTile(mapToArray(oController.mouseCoors)[1])];
+var guiX = mapToGui(guiCoors)[0];
+var guiY = mapToGui(guiCoors)[1];
+
+var mouseCoors = mapToGui(oController.mouseCoors);
+var mouseX = mouseCoors[0];
+var mouseY = mouseCoors[1];
+
+var scale = 1/getCameraZoom();
+
+if (toolDisplay == 1) {
+	var tool = getToolDraw(toolSelected);
+	draw_sprite_ext(tool[0],tool[1],mouseX,mouseY,scale,scale,0,c_white,0.7);
+}
+else if (toolDisplay == 2) {
+	var tool = getToolDraw(toolSelected);
+	draw_sprite_ext(tool[0],tool[1],guiX,guiY,scale,scale,0,c_white,1);
+}
+else if (toolDisplay == 3) {
+	draw_sprite_ext(sLevelEditorEraser,0,mouseX,mouseY,scale,scale,0,c_white,1);
+}
+else if (toolDisplay == 4) {
+	draw_sprite_ext(sLevelEditorEraser,1,guiX,guiY,scale,scale,0,c_white,0.5);
+}
