@@ -13,7 +13,8 @@ for (int i = 0; i < 32; i++) {
 }
 
 //Boundaries
-for (int i = 0; i < oInitialise.roomWidth / 64; i++) {
+for (int i = 0; i < oInitialise.roomWidth / 64; i++)
+{
 	for (int n = 0; n < oInitialise.roomHeight / 64; n++) {
 		if (((i < (TILE_START / 64)) || (i >= (oInitialise.roomWidth-TILE_START) / 64)) ||
 			((n < (TILE_START / 64)) || (n >= (oInitialise.roomHeight-TILE_START) / 64))) {

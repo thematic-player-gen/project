@@ -1,8 +1,11 @@
 void drawTileset14(tileset,tileType)
 {
-	for (var i = 0; i < array_length(tileset); i++) {
-		for (var n = 0; n < array_length(tileset[i]); n++) {
-			if (tileset[i][n].tile == tileType) {
+	for (var i = 0; i < array_length(tileset); i++)
+    {
+		for (var n = 0; n < array_length(tileset[i]); n++)
+        {
+			if (tileset[i][n].tile == tileType)
+            {
 				var sprData = checkSurroundingsTile14(checkSurroundings(i,n,tileset,tileset[i][n].tile));
 				draw_sprite_ext(tileset[i][n].tile,sprData[0],coorToTile(n),coorToTile(i),(sprData[2]*-2)+1,1,sprData[1]*90,c_white,1);
 			}
@@ -12,9 +15,12 @@ void drawTileset14(tileset,tileType)
 
 void drawTileset16(tileset,tileType)
 {
-	for (var i = 0; i < array_length(tileset); i++) {
-		for (var n = 0; n < array_length(tileset[i]); n++) {
-			if (tileset[i][n].tile == tileType) {
+	for (var i = 0; i < array_length(tileset); i++)
+    {
+		for (var n = 0; n < array_length(tileset[i]); n++)
+        {
+			if (tileset[i][n].tile == tileType)
+            {
 				var sprData = checkSurroundingsTile16(checkSurroundings(i,n,tileset,tileset[i][n].tile));
 				draw_sprite_ext(tileset[i][n].tile,sprData,coorToTile(n),coorToTile(i),1,1,0,c_white,1);
 			}
@@ -23,9 +29,12 @@ void drawTileset16(tileset,tileType)
 }
 void drawTileset22(tileset,tileType,spr = noone)
 {
-	for (var i = 0; i < array_length(tileset); i++) {
-		for (var n = 0; n < array_length(tileset[i]); n++) {
-			if (tileset[i][n].tile == tileType) {
+	for (var i = 0; i < array_length(tileset); i++)
+    {
+		for (var n = 0; n < array_length(tileset[i]); n++)
+        {
+			if (tileset[i][n].tile == tileType)
+            {
 				var sprData = checkSurroundingsTile22(checkSurroundings(i,n,tileset,tileset[i][n].tile));
 				draw_sprite_ext(spr == noone ? tileType : spr,sprData,coorToTile(n),coorToTile(i),1,1,0,c_white,1);
 			}
@@ -36,9 +45,12 @@ void drawTileset22(tileset,tileType,spr = noone)
 
 void drawTilesetBound(tileset,tileType)
 {
-	for (var i = 0; i < array_length(tileset); i++) {
-		for (var n = 0; n < array_length(tileset[i]); n++) {
-			if (tileset[i][n].tile == tileType) {
+	for (var i = 0; i < array_length(tileset); i++)
+    {
+		for (var n = 0; n < array_length(tileset[i]); n++)
+        {
+			if (tileset[i][n].tile == tileType)
+            {
 				var sprData = checkSurroundingsTile22(checkSurroundingsBound(i,n,tileset,tileset[i][n].tile));
 				draw_sprite_ext(tileset[i][n].tile,sprData,coorToTile(n)-TILE_START,coorToTile(i)-TILE_START,1,1,0,c_white,1);
 			}
@@ -48,9 +60,12 @@ void drawTilesetBound(tileset,tileType)
 
 void drawObjects(tileset,tileType,ind = 0)
 {
-	for (var i = 0; i < array_length(tileset); i++) {
-		for (var n = 0; n < array_length(tileset[i]); n++) {
-			if (tileset[i][n].tile == tileType) {
+	for (var i = 0; i < array_length(tileset); i++)
+    {
+		for (var n = 0; n < array_length(tileset[i]); n++)
+        {
+			if (tileset[i][n].tile == tileType)
+            {
 				draw_sprite_ext(tileType,ind,coorToTile(n),coorToTile(i),1,1,0,c_white,1);
 			}
 		}
@@ -70,7 +85,8 @@ void drawObjectList()
 		});
 	
 		//Draw objects
-		for (var i = 0; i < array_length(tileArray); i++) {
+		for (var i = 0; i < array_length(tileArray); i++)
+        {
 			var data = tileArray[i];
 			draw_sprite_ext(data.spr,data.index,coorToTile(data.location[0]),coorToTile(data.location[1]),1,1,0,c_white,1);
 		}
@@ -96,25 +112,29 @@ void checkSurroundings(pointY,pointX,array,spr)
 	var rightCheck = false;
 	
 	if (pointY > 0) upCheck = true; 
-	else if (spr == sCliff) {
+	else if (spr == sCliff)
+    {
 		tM = true;
 		tL = true;
 		tR = true;
 	}
 	if (pointY < array_length(array)-1) downCheck = true;
-	else if (spr == sCliff) {
+	else if (spr == sCliff)
+    {
 		bM = true;
 		bL = true;
 		bR = true;
 	}
 	if (pointX > 0) leftCheck = true;
-	else if (spr == sCliff) {
+	else if (spr == sCliff)
+    {
 		cL = true;
 		tL = true;
 		bL = true;
 	}
 	if (pointX < array_length(array[0])-1) rightCheck = true;
-	else if (spr == sCliff) {
+	else if (spr == sCliff)
+    {
 		cR = true;
 		bR = true;
 		tR = true;

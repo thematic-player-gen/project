@@ -6,6 +6,9 @@
 managersLayer = layer_get_id("Managers");
 gameplayLayer = layer_get_id("Gameplay");
 
+
+//private LayerMask Managers;
+//private LayerMask Gameplay;
 //Room
 roomWidth = room_width;
 roomHeight = room_height;
