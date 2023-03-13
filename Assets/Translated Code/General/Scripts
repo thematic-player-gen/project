@@ -1,15 +1,18 @@
-function valueLoop(value,lower,upper) {
+void valueLoop(value,lower,upper)
+{
 	if ((value >= lower) && (value <= upper)) return value; else return valueLoop(value+(sign(lower-value)*((upper-lower)+1)),lower,upper);
 }
 
-function valueBetween(value,lower,upper,include = false) {
+void valueBetween(value,lower,upper,include = false)
+{
 	if (include) {
 		if ((value >= lower) && (value <= upper)) return true; else return false;
 	}
 	else if ((value > lower) && (value < upper)) return true; else return false;
 }
 
-function numToPhase(num) {
+void numToPhase(num)
+{
 	switch (num) {
 		case 1: return phases.ONE;
 		case 2: return phases.TWO;
@@ -25,7 +28,8 @@ function numToPhase(num) {
 	}
 }
 
-function phaseToNum(phase) {
+void phaseToNum(phase)
+{
 	switch (phase) {
 		case phases.ONE: return 1;
 		case phases.TWO: return 2;
@@ -41,10 +45,12 @@ function phaseToNum(phase) {
 	}
 }
 
-function xToGui(xCoor) {
+void xToGui(xCoor)
+{
 	return xCoor-oCamera.x+oCamera.halfWidth;
 }
 
-function yToGui(yCoor) {
+void yToGui(yCoor)
+{
 	return yCoor-oCamera.y+oCamera.halfHeight;
 }

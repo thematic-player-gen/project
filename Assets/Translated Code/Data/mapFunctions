@@ -1,4 +1,5 @@
-function drawTileset14(tileset,tileType) {
+void drawTileset14(tileset,tileType)
+{
 	for (var i = 0; i < array_length(tileset); ++i) {
 		for (var n = 0; n < array_length(tileset[i]); ++n) {
 			if (tileset[i][n].tile == tileType) {
@@ -9,7 +10,8 @@ function drawTileset14(tileset,tileType) {
 	}
 }
 
-function drawTileset16(tileset,tileType) {
+void drawTileset16(tileset,tileType)
+{
 	for (var i = 0; i < array_length(tileset); ++i) {
 		for (var n = 0; n < array_length(tileset[i]); ++n) {
 			if (tileset[i][n].tile == tileType) {
@@ -19,7 +21,8 @@ function drawTileset16(tileset,tileType) {
 		}
 	}
 }
-function drawTileset22(tileset,tileType,spr = noone) {
+void drawTileset22(tileset,tileType,spr = noone)
+{
 	for (var i = 0; i < array_length(tileset); ++i) {
 		for (var n = 0; n < array_length(tileset[i]); ++n) {
 			if (tileset[i][n].tile == tileType) {
@@ -31,7 +34,8 @@ function drawTileset22(tileset,tileType,spr = noone) {
 }
 
 
-function drawTilesetBound(tileset,tileType) {
+void drawTilesetBound(tileset,tileType)
+{
 	for (var i = 0; i < array_length(tileset); ++i) {
 		for (var n = 0; n < array_length(tileset[i]); ++n) {
 			if (tileset[i][n].tile == tileType) {
@@ -42,7 +46,8 @@ function drawTilesetBound(tileset,tileType) {
 	}
 }
 
-function drawObjects(tileset,tileType,ind = 0) {
+void drawObjects(tileset,tileType,ind = 0)
+{
 	for (var i = 0; i < array_length(tileset); ++i) {
 		for (var n = 0; n < array_length(tileset[i]); ++n) {
 			if (tileset[i][n].tile == tileType) {
@@ -52,12 +57,15 @@ function drawObjects(tileset,tileType,ind = 0) {
 	}
 }
 
-function drawObjectList() {
+void drawObjectList()
+{
 	//Sort object data by location into array
 	var tileset = oData.objectData;
 	if (ds_list_size(tileset) > 0) {
-		for (var i = 0; i < ds_list_size(tileset); ++i) tileArray[i] = ds_list_find_value(tileset,i);
-		array_sort(tileArray,function(elm1, elm2){
+		for (var i = 0; i < ds_list_size(tileset); ++i)
+		tileArray[i] = ds_list_find_value(tileset,i);
+		array_sort(tileArray,function(elm1, elm2)
+		{
 			return elm1.location[1] - elm2.location[1];
 		});
 	
@@ -71,7 +79,8 @@ function drawObjectList() {
 	}
 }
 
-function checkSurroundings(pointY,pointX,array,spr) {
+void checkSurroundings(pointY,pointX,array,spr)
+{
 	var tL = false;
 	var tM = false;
 	var tR = false;
@@ -126,7 +135,8 @@ function checkSurroundings(pointY,pointX,array,spr) {
 	
 	return [tL,tM,tR,cL,cR,bL,bM,bR];
 }
-function checkSurroundingsBound(pointY,pointX,array,spr) {
+void checkSurroundingsBound(pointY,pointX,array,spr)
+{
 	var tL = false;
 	var tM = false;
 	var tR = false;
@@ -230,7 +240,8 @@ function checkSurroundingsBound(pointY,pointX,array,spr) {
 	return [tL,tM,tR,cL,cR,bL,bM,bR];
 }
 
-function checkSurroundingsTile14(surroundArray) {
+void checkSurroundingsTile14(surroundArray)
+{
 	var topLeft = surroundArray[0];
 	var topMiddle = surroundArray[1];
 	var topRight = surroundArray[2];
@@ -311,7 +322,8 @@ function checkSurroundingsTile14(surroundArray) {
 	}
 	return tile;
 }
-function checkSurroundingsTile16(surroundArray) {
+void checkSurroundingsTile16(surroundArray)
+{
 	var topMiddle = surroundArray[1];
 	var centreLeft = surroundArray[3];
 	var centreRight = surroundArray[4];
@@ -346,7 +358,8 @@ function checkSurroundingsTile16(surroundArray) {
 	return tile;
 }
 	
-function checkSurroundingsTile22(surroundArray) {
+void checkSurroundingsTile22(surroundArray)
+{
 	var topLeft = surroundArray[0];
 	var topMiddle = surroundArray[1];
 	var topRight = surroundArray[2];

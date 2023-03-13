@@ -1,4 +1,6 @@
 //Initialise
+void Start()
+{
 cam = view_camera[0];
 follow = oPlayer;
 defaultWidth = camera_get_view_width(cam);
@@ -25,3 +27,4 @@ zoom = 1;
 zoomSpd = 10;
 fixedX = 0;
 fixedY = 0;
+}

@@ -1,4 +1,5 @@
-function guiToMap(coor) {
+void guiToMap(coor)
+{
 	var xCoor = coor[0];
 	var yCoor = coor[1];
 	
@@ -10,7 +11,8 @@ function guiToMap(coor) {
 	return [xCoor,yCoor];
 }
 
-function mapToGui(coor) {
+void mapToGui(coor)
+{
 	var xCoor = coor[0];
 	var yCoor = coor[1];
 	
@@ -22,15 +24,18 @@ function mapToGui(coor) {
 	return [xCoor,yCoor];
 }
 
-function mapToArray(coor) {
-	return [(coor[0]-TILE_START) div TILE_SIZE,(coor[1]-TILE_START) div TILE_SIZE];
+void mapToArray(coor)
+{
+	return [(coor[0]-TILE_START) / TILE_SIZE,(coor[1]-TILE_START) / TILE_SIZE];
 }
 
-function coorToTile(coor) {
+void coorToTile(coor)
+{
 	return (coor*TILE_SIZE)+(TILE_SIZE/2)+TILE_START;
 }
 
-function editorClearAll() {
+void editorClearAll()
+{
 	with (oEditor) {
 		assetFade(assetLevelEditorTopBar,0,15,true);
 		for (var i = 0; i < 12; ++i) assetFade(assetLevelEditorIcons[i],0,15,true);

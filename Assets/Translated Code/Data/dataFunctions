@@ -1,10 +1,12 @@
-function addTile(tileset,coors,spr) {
+void addTile(tileset,coors,spr)
+{
 	tileset[coors[1],coors[0]] = {
 		tile : spr
 	}
 }
 
-function addObject(obj,coors,ind = 0) {
+void addObject(obj,coors,ind = 0)
+{
 	ds_list_add(oData.objectData,{
 		spr : obj,
 		index : ind,
@@ -19,7 +21,8 @@ function addObject(obj,coors,ind = 0) {
 	}
 }
 
-function changeObjectIndex(coors,ind) {
+void changeObjectIndex(coors,ind)
+{
 	var c = oData.objectArray[coors[1],coors[0]].link;
 	for (var i = 0; i < ds_list_size(oData.objectData); ++i) {
 		var cCheck = ds_list_find_value(oData.objectData,i);
@@ -35,11 +38,13 @@ function changeObjectIndex(coors,ind) {
 	}
 }
 
-function checkTileFree(tileset,coors) {
+void checkTileFree(tileset,coors)
+{
 	if (tileset[coors[1],coors[0]].tile == noone) return true; else return false;
 }
 
-function checkTileFree4(tileset,coors,spr = noone) {
+void checkTileFree4(tileset,coors,spr = noone)
+{
 	if ((coors[1] < 31) && (coors[0] < 60)) {
 		if (((tileset[coors[1],coors[0]].tile == noone) || (tileset[coors[1],coors[0]].tile == spr)) &&
 			((tileset[coors[1]+1,coors[0]+1].tile == noone) || (tileset[coors[1]+1,coors[0]+1].tile == spr)) &&
@@ -48,7 +53,8 @@ function checkTileFree4(tileset,coors,spr = noone) {
 	}
 }
 
-function removeTile(tileset,coors,skip = false) {
+void removeTile(tileset,coors,skip = false)
+{
 	var t = tileset[coors[1],coors[0]].tile;
 	if ((!skip) && ((t == sTree1) || (t == sTree2))) removeObject(coors);
 	else tileset[coors[1],coors[0]] = {
@@ -56,7 +62,8 @@ function removeTile(tileset,coors,skip = false) {
 	}
 }
 
-function removeObject(coors) {
+void removeObject(coors)
+{
 	var c = oData.objectArray[coors[1],coors[0]].link;
 	for (var i = 0; i < ds_list_size(oData.objectData); ++i) {
 		var cCheck = ds_list_find_value(oData.objectData,i);
@@ -70,7 +77,8 @@ function removeObject(coors) {
 	}
 }
 
-function checkTilePlaceableWater(tileset,coors) {
+void checkTilePlaceableWater(tileset,coors)
+{
 	if ((coors[0] > 0) && (coors[0] < 60) && (coors[1] > 0) && (coors[1] < 31)) {
 		for (var i = -1; i < 2; ++i) {
 		    for (var n = -1; n < 2; ++n) {
@@ -81,7 +89,8 @@ function checkTilePlaceableWater(tileset,coors) {
 	return true;
 }
 
-function checkTilePlaceableGround(tileset,coors,dirt = true) {
+void checkTilePlaceableGround(tileset,coors,dirt = true)
+{
 	if (tileset[coors[1],coors[0]].tile == noone) return true;
 	else if ((dirt) && (tileset[coors[1],coors[0]].tile == sDirt)) return true;
 	else if (tileset[coors[1],coors[0]].tile == sCliff) {
@@ -96,7 +105,8 @@ function checkTilePlaceableGround(tileset,coors,dirt = true) {
 	}
 }
 
-function checkTilePlaceableGround3x2(tileset,coors,dirt = true) {
+void checkTilePlaceableGround3x2(tileset,coors,dirt = true)
+{
 	if ((coors[1] > 0) && (coors[0] < 60) && (coors[0] > 0)) {
 		if ((checkTilePlaceableGround(tileset,[coors[0]+1,coors[1]-1],dirt)) &&
 			(checkTilePlaceableGround(tileset,[coors[0]-1,coors[1]-1],dirt)) &&
@@ -107,7 +117,8 @@ function checkTilePlaceableGround3x2(tileset,coors,dirt = true) {
 	}
 }
 
-function checkTileFree3x2(tileset,coors,spr = noone) {
+void checkTileFree3x2(tileset,coors,spr = noone)
+{
 	if ((coors[1] > 0) && (coors[0] < 60) && (coors[0] > 0)) {
 		if (((tileset[coors[1],coors[0]].tile == noone) || (tileset[coors[1],coors[0]].tile == spr)) &&
 			((tileset[coors[1],coors[0]+1].tile == noone) || (tileset[coors[1],coors[0]+1].tile == spr)) &&

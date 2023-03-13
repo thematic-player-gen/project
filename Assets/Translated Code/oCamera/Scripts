@@ -1,4 +1,5 @@
-function getCameraSize() {
+void getCameraSize()
+{
 	with (oCamera) {
 		var w = camera_get_view_width(cam);
 		var h = camera_get_view_height(cam);
@@ -6,25 +7,29 @@ function getCameraSize() {
 	return [w,h];
 }
 
-function getCameraZoom() {
+void getCameraZoom()
+{
 	return oCamera.currentZoom;
 }
 
-function cameraFix(xCoor,yCoor) {
+void cameraFix(xCoor,yCoor)
+{
 	with (oCamera) {
 		if (xCoor != -1000) fixedX = xCoor;
 		if (yCoor != -1000) fixedY = yCoor;
 	}
 }
 
-function cameraZoom(zoomS,zoomSp = 0) {
+void cameraZoom(zoomS,zoomSp = 0)
+{
 	with (oCamera) {
 		zoom = zoomS;
 		if (zoomSp > 0) zoomSpd = zoomSp;
 	}
 }
 
-function cameraMoveSpd(xSpd,ySpd) {
+void cameraMoveSpd(xSpd,ySpd)
+{
 	with (oCamera) {
 		xTowards += xSpd;
 		if (xTowards < halfWidth) xTowards = halfWidth;
@@ -35,7 +40,8 @@ function cameraMoveSpd(xSpd,ySpd) {
 	}
 }
 
-function cameraMoveSet(xSet,ySet) {
+void cameraMoveSet(xSet,ySet)
+	{
 	with (oCamera) {
 		xTowards = xSet;
 		if (xTowards < halfWidth) xTowards = halfWidth;

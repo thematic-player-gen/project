@@ -1,4 +1,6 @@
 //Map Data
+void Start()
+{
 for (var i = 0; i < 32; ++i) {
     for (var n = 0; n < 61; ++n) {
 	    objectArray[i,n] = {
@@ -11,10 +13,10 @@ for (var i = 0; i < 32; ++i) {
 }
 
 //Boundaries
-for (var i = 0; i < oInitialise.roomWidth div 64; i++) {
-	for (var n = 0; n < oInitialise.roomHeight div 64; n++) {
-		if (((i < (TILE_START div 64)) || (i >= (oInitialise.roomWidth-TILE_START) div 64)) ||
-			((n < (TILE_START div 64)) || (n >= (oInitialise.roomHeight-TILE_START) div 64))) {
+for (var i = 0; i < oInitialise.roomWidth / 64; i++) {
+	for (var n = 0; n < oInitialise.roomHeight / 64; n++) {
+		if (((i < (TILE_START / 64)) || (i >= (oInitialise.roomWidth-TILE_START) / 64)) ||
+			((n < (TILE_START / 64)) || (n >= (oInitialise.roomHeight-TILE_START) / 64))) {
 			boundaryArray[n,i] = {
 				tile : sGrass
 			}
@@ -39,3 +41,4 @@ objectData = ds_list_create();
 
 //Player Position
 playerPosition = [0,0];
+}
