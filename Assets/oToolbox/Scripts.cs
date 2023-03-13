@@ -21,9 +21,9 @@ public class Scripts : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((t == createScript.sCliff) || (t == createScript.sPavement)) return [t, 18];
+        /*if ((t == createScript.sCliff) || (t == createScript.sPavement)) return [t, 18];
         if ((t == createScript.sFencing)) return [t, 12];
         if ((t == createScript.sTree2)) return [t, 2];
-        else return [t, 0];
+        else return [t, 0];*/
     }
 }
